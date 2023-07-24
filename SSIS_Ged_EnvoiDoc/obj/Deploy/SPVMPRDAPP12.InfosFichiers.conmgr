@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SPVMPRDAPP12.InfosFichiers2_1"
+  DTS:DTSID="{040380C3-1A4F-4177-BEE0-2705CA80385C}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SPVMPRDAPP12;Initial Catalog=InfosFichiers2;Integrated Security=True;Application Name=SSIS-GED-{040380C3-1A4F-4177-BEE0-2705CA80385C}SPVMPRDAPP12.InfosFichiers21;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

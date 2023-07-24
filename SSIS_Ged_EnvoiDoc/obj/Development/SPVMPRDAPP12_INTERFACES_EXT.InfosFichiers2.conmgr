@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SPVMPRDAPP12_INTERFACES_EXT.InfosFichiers2"
+  DTS:DTSID="{DAE07817-A604-4283-94B8-A68CF7C63C99}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SPVMPRDAPP12\INTERFACES_EXT;Initial Catalog=InfosFichiers2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
