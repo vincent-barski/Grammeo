@@ -1,0 +1,799 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/9/2017 9:51:55 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SPVMDEVAPP33"
+  DTS:CreatorName="LPDP\vbarski-admin"
+  DTS:DTSID="{330A134D-9E16-4B8C-8AAE-4BC503E55F53}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Deplacer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{0672AB8E-CF56-48E4-ADB6-0CCD8620C3D8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[InfosFichiers]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B1F8AEA3-F81E-4404-8C03-0EE8D39216BB}"
+      DTS:ObjectName="InfosFichiers">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::ConnectionString_InfosFichiers]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=SPVMDEVAPP33\INTERFACES;Initial Catalog=InfosFichiers;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQL Server]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7E555F1D-E2F0-4C60-AB19-499D66305229}"
+      DTS:ObjectName="SQL Server">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::ConnectionString_SQLServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=SPVMDEVAPP33\INTERFACES;Initial Catalog=ToolBox;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="SQL Server"
+      DTS:CreationName="DTS.LogProviderSQLServer.3"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{20E39845-2912-4B13-B332-C67804DF0C15}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{125B960B-16BC-4EAE-B0B4-CECF6CFC5D51}"
+      DTS:ObjectName="AccuseReception">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7F609B95-5B19-4242-AD62-D63495C1CABE}"
+      DTS:ObjectName="Adresse">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{6DAFBB41-5BE4-422A-A2E0-CF4ECB1A5F87}"
+      DTS:ObjectName="Bcc">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{F1B2BAAE-1F3E-403A-8B18-A3685BD87C45}"
+      DTS:ObjectName="Cc">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7E353CB7-DE1F-4B5D-B9D3-2B9B02EB56C5}"
+      DTS:ObjectName="ChaineAChercher">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9C664549-8F18-422A-8506-80097FA4E2C3}"
+      DTS:ObjectName="ChaineDeParametres">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{EC3BA0C7-4F39-4DD5-ADC6-C333E7B07F83}"
+      DTS:ObjectName="ConnectionString_InfosFichiers">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=SPVMDEVAPP33\INTERFACES;Initial Catalog=InfosFichiers;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E398EB92-63D2-4978-90FE-C08253D37DCA}"
+      DTS:ObjectName="ConnectionString_SQLServer">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=SPVMDEVAPP33\INTERFACES;Initial Catalog=ToolBox;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{249671FE-412B-41BB-889D-1B6682AC8B34}"
+      DTS:ObjectName="Corps">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5A44A8D6-65C0-408A-9F86-F45C8431A262}"
+      DTS:ObjectName="DossierCible">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\test\out</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9202BF4F-5A2D-4047-8A35-893E42FAEA09}"
+      DTS:ObjectName="DossierSource">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\test\in</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{37607E7E-EFD0-4B21-9B59-A50EDE4D7A7A}"
+      DTS:ObjectName="Extension">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">*</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{77E0DD44-63F0-4193-ACB6-4DC3EA93F3F1}"
+      DTS:ObjectName="Fichier">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">*</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4E6C15C9-32F1-4F5B-A16C-5D8C97BCA5AD}"
+      DTS:ObjectName="From">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{17C4F0F3-B736-4EE8-B2C3-78BA63F718CB}"
+      DTS:ObjectName="FtpTimeout">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{0D9BEB51-0E9D-4EFB-B2BA-B3D36D416C8A}"
+      DTS:ObjectName="idAction">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{D3EB31C1-4D1F-4056-8AF9-EADA8A1AD1B6}"
+      DTS:ObjectName="idEtape">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{B8521F71-0BD5-4AFD-B64D-B5754B2C6EE8}"
+      DTS:ObjectName="idTypeEtape">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B06A5B45-CAE7-4434-A66D-DADF64056DCE}"
+      DTS:ObjectName="Login">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{BC39428B-5895-4AEE-9646-94C42FCC35B8}"
+      DTS:ObjectName="Longueur">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8033EB45-B232-40D4-B16E-CEE37B7CE9C9}"
+      DTS:ObjectName="ModeReceptionFichiers">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{093ED614-163E-47AC-8ACD-507B7FD81F75}"
+      DTS:ObjectName="NomBDD">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2BE85178-9534-498C-A769-A944896BE4AE}"
+      DTS:ObjectName="NomColonneRetour">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5D39E7D0-A086-4BE4-916A-0B2435300EFC}"
+      DTS:ObjectName="NomInstance">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C72E9E2E-EE67-49E4-BE46-53C5751EC8AF}"
+      DTS:ObjectName="NomProcedureStockee">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{7ADCDA9D-F3CF-480E-8674-D6C5D28F2AB7}"
+      DTS:ObjectName="Port">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{632CAFA5-74E4-4B25-A246-378F939CEC4D}"
+      DTS:ObjectName="Position">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A9266290-CEDB-45E3-A9C4-0824D2C63A79}"
+      DTS:ObjectName="Pwd">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B5DE9D8B-D210-48ED-BF91-8EE47EF438C6}"
+      DTS:ObjectName="RenommerChaineAChercher">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{1BDB8D61-B456-4D11-B966-A6DB6546E13B}"
+      DTS:ObjectName="RenommerChaineRemplacement">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DC9320DE-4EB3-4EBB-983C-7C83F830EA7A}"
+      DTS:ObjectName="Server">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{13D49CF3-42EA-4E2B-B5A4-641DDB3A7A96}"
+      DTS:ObjectName="SmtpLogin">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2E211B6D-D58A-479C-89C6-BE83802BCF4E}"
+      DTS:ObjectName="SmtpPwd">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{DE6A27BC-D694-4D8F-9BD9-D18290C3E32F}"
+      DTS:ObjectName="SmtpTimeout">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{0CCC5E34-AB91-453C-B869-A6DC6D2E0E45}"
+      DTS:ObjectName="Sujet">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4D544C3F-161C-415D-BCA2-E2D72A83C19D}"
+      DTS:ObjectName="To">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{48D40EDA-B318-4AC4-9158-E4CE5ADC4AAD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CheminFichier">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\test\in\test.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3C086A9C-E3C6-4AB6-8420-7EF6D82A33D9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intResultTask">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D587CC5-8016-4C17-87D0-C8A454E46473}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strResultMessage">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{81312860-98A1-4BBC-9E1C-DF1F1E2D0606}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::DossierSource] + &quot;\\&quot; +  @[$Package::Fichier] + &quot;.&quot; +  @[$Package::Extension]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\test\in\*.*</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">1,7,OnError</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnInformation"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnProgress"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{20E39845-2912-4B13-B332-C67804DF0C15}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F3919E36-9A28-4C93-A93A-FB44753D07E1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Foreach Loop Container"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{2FDA9A96-084C-4701-9358-4AB3E5634BBC}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Loop Container">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="DTS.ForEachFileEnumerator.3"
+            DTS:DTSID="{B86054C2-6165-4549-AABF-E69E98041075}"
+            DTS:ObjectName="{1E4B4932-5CC6-47EC-A37D-2AFB656DB010}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[$Package::DossierSource]</DTS:PropertyExpression>
+            <DTS:PropertyExpression
+              DTS:Name="FileSpec">@[$Package::Fichier] + "." +  @[$Package::Extension]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\test\in" />
+                <FEFEProperty
+                  FileSpec="*.*" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Sequence Container\Foreach Loop Container\deplacer"
+              DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:Description="File System Task"
+              DTS:DTSID="{91AD9211-5C6D-4896-9D3A-923DE954E1A6}"
+              DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="deplacer"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
+              <DTS:EventHandlers>
+                <DTS:EventHandler
+                  DTS:refId="Package\Sequence Container\Foreach Loop Container\deplacer.EventHandlers[OnError]"
+                  DTS:CreationName="OnError"
+                  DTS:DTSID="{85378A8C-973E-40FC-96DA-D34DE168D34F}"
+                  DTS:EventID="0"
+                  DTS:EventName="OnError"
+                  DTS:LocaleID="-1">
+                  <DTS:Variables>
+                    <DTS:Variable
+                      DTS:CreationName=""
+                      DTS:Description="The propagate property of the event"
+                      DTS:DTSID="{C3C72E05-3CD4-47AF-B9A7-3566D56D8CC9}"
+                      DTS:IncludeInDebugDump="6789"
+                      DTS:Namespace="System"
+                      DTS:ObjectName="Propagate">
+                      <DTS:VariableValue
+                        DTS:DataType="11">-1</DTS:VariableValue>
+                    </DTS:Variable>
+                  </DTS:Variables>
+                  <DTS:Executables>
+                    <DTS:Executable
+                      DTS:refId="Package\Sequence Container\Foreach Loop Container\deplacer.EventHandlers[OnError]\Log"
+                      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                      DTS:Description="Execute SQL Task"
+                      DTS:DTSID="{FA2B3C3D-C1C9-4C39-8966-A3D68F039807}"
+                      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                      DTS:LocaleID="-1"
+                      DTS:ObjectName="Log"
+                      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                      <DTS:Variables />
+                      <DTS:ObjectData>
+                        <SQLTask:SqlTaskData
+                          SQLTask:Connection="{7E555F1D-E2F0-4C60-AB19-499D66305229}"
+                          SQLTask:SqlStatementSource="INSERT INTO Log&#xA;SELECT &#xA;?,?,?,0,?,getdate()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="0"
+                            SQLTask:DtsVariableName="$Package::idAction"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="3"
+                            SQLTask:ParameterSize="-1" />
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="1"
+                            SQLTask:DtsVariableName="$Package::idTypeEtape"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="3"
+                            SQLTask:ParameterSize="-1" />
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="2"
+                            SQLTask:DtsVariableName="$Package::idEtape"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="3"
+                            SQLTask:ParameterSize="-1" />
+                          <SQLTask:ParameterBinding
+                            SQLTask:ParameterName="3"
+                            SQLTask:DtsVariableName="System::ErrorDescription"
+                            SQLTask:ParameterDirection="Input"
+                            SQLTask:DataType="130"
+                            SQLTask:ParameterSize="-1" />
+                        </SQLTask:SqlTaskData>
+                      </DTS:ObjectData>
+                    </DTS:Executable>
+                  </DTS:Executables>
+                </DTS:EventHandler>
+              </DTS:EventHandlers>
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="MoveFile"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::CheminFichier"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="$Package::DossierCible"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{D6D45AEC-B8D3-4301-AF8B-38747479E00C}"
+              DTS:ObjectName="{61E13FE6-01C9-43CB-A55C-939FFA3C516A}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::CheminFichier" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Log"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{318119DA-E6D2-4649-9278-E0D586DE6FA6}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7E555F1D-E2F0-4C60-AB19-499D66305229}"
+              SQLTask:SqlStatementSource="INSERT INTO Log&#xA;SELECT &#xA;?,?,?,1,NULL,getdate()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::idAction"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::idTypeEtape"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="$Package::idEtape"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B2F4D7EC-ABA1-4D06-98ED-60F9F1FD1B0E}"
+          DTS:From="Package\Sequence Container\Foreach Loop Container"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Log" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Sequence Container\Foreach Loop Container\deplacer"
+          TopLeft="161,82" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="447,240"
+          Size="447,283"
+          Id="Package\Sequence Container\Foreach Loop Container"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="96,42"
+          Id="Package\Sequence Container\Log"
+          TopLeft="233,378" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="282.25,343">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="576,472"
+          Size="576,515"
+          Id="Package\Sequence Container"
+          TopLeft="95,63" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package\Sequence Container\Foreach Loop Container\deplacer.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="96,42"
+          Id="Package\Sequence Container\Foreach Loop Container\deplacer.EventHandlers[OnError]\Log"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
